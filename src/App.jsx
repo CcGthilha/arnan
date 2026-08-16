@@ -166,7 +166,7 @@ function RefuseReoffer({ onTaken }) {
     <div className="card" ref={cardRef}>
       <DogMeme caption="ยื่นให้อีกรอบ" src={dogGive} />
       <h1>เอาไปเถอะ</h1>
-      <p className="msg">ให้ฟรีเลยนะ รอบนี้หนีไม่ได้แล้ว</p>
+      <p className="msg">ให้ฟรีเลยนะ เนี่ยให้คุณคนเดียวเลยนะ</p>
       <ChasePair agreeLabel="เอา" denyLabel="ไม่เอา" containerRef={cardRef} onAgree={onTaken} />
     </div>
   )
