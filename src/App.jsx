@@ -1,3 +1,12 @@
+import dogSneaky from './assets/dog-sneaky.jpg'
+import dogSmile from './assets/dog-smile.jpg'
+import dogGive from './assets/dog-give.jpg'
+import dogHappy from './assets/dog-happy.jpg'
+import dogShy from './assets/dog-shy.jpg'
+import dogAsk from './assets/dog-ask.jpg'
+import dogPuppy from './assets/dog-puppy.jpg'
+import dogWhine from './assets/dog-whine.jpg'
+import dogSleep from './assets/dog-sleep.jpg'
 import dogImg from './assets/dog.jpg'
 import { useState, useRef, useEffect } from 'react'
 import './App.css'
@@ -120,7 +129,7 @@ function AskKnow({ onNext }) {
   const cardRef = useRef(null)
   return (
     <div className="card" ref={cardRef}>
-      <DogMeme caption="ทำหน้าลึกลับ" />
+      <DogMeme caption="ทำหน้าลึกลับ" src={dogSneaky}/>
       <h1>บลูมีไรจะให้แหละ</h1>
       <p className="msg">ไหนๆ คุณอยากรู้มั้ยอะไร</p>
       <ChasePair agreeLabel="อยากรู้" denyLabel="ไม่อยากรู้" containerRef={cardRef} onAgree={onNext} />
@@ -144,7 +153,7 @@ function HeartOffer({ onTake, onSkip }) {
 function AcceptContinue({ onNext }) {
   return (
     <div className="card">
-      <DogMeme caption="ยิ้มกริ่ม" />
+      <DogMeme caption="ยิ้มกริ่ม" src={dogSmile} />
       <h1>รับไว้นะ</h1>
       <button className="agree-btn wide" onClick={onNext}>ไปกันต่อ</button>
     </div>
@@ -155,7 +164,7 @@ function RefuseReoffer({ onTaken }) {
   const cardRef = useRef(null)
   return (
     <div className="card" ref={cardRef}>
-      <DogMeme caption="ยื่นให้อีกรอบ" />
+      <DogMeme caption="ยื่นให้อีกรอบ" src={dogGive} />
       <h1>เอาไปเถอะ</h1>
       <p className="msg">ให้ฟรีเลยนะ รอบนี้หนีไม่ได้แล้ว</p>
       <ChasePair agreeLabel="เอา" denyLabel="ไม่เอา" containerRef={cardRef} onAgree={onTaken} />
@@ -166,7 +175,7 @@ function RefuseReoffer({ onTaken }) {
 function ForcedAccept({ onNext }) {
   return (
     <div className="card">
-      <DogMeme caption="ดีใจ" />
+      <DogMeme caption="ดีใจ" src={dogHappy} />
       <h1>เย่</h1>
       <button className="agree-btn wide" onClick={onNext}>ไปกันต่อ</button>
     </div>
@@ -178,7 +187,7 @@ function Letter({ onAgreeMakeUp }) {
   const cardRef = useRef(null)
   return (
     <div className="card" ref={cardRef}>
-      <DogMeme caption="นั่งรอเขิน ๆ" />
+      <DogMeme caption="นั่งรอเขิน ๆ" src={dogShy} />
       {!open ? (
         <>
           <div className="envelope">
@@ -204,7 +213,7 @@ function Letter({ onAgreeMakeUp }) {
 function ConfirmMakeUp({ onYes, onNo }) {
   return (
     <div className="card">
-      <DogMeme caption="เอียงคอถาม" />
+      <DogMeme caption="เอียงคอถาม" src={dogAsk} />
       <h1>เย่ ดีกันแล้วใช่ม้ายยยยยยย</h1>
       <PlainChoice leftLabel="ใช่" rightLabel="ไม่" onLeft={onYes} onRight={onNo} />
     </div>
@@ -215,7 +224,7 @@ function MakeUpNoRetry({ onAgreed }) {
   const cardRef = useRef(null)
   return (
     <div className="card" ref={cardRef}>
-      <DogMeme caption="ทำตาแป๋ว" />
+      <DogMeme caption="ทำตาแป๋ว" src={dogPuppy} />
       <h1>ฮืออ ดีกันได้แล้วมั้ง</h1>
       <p className="msg">คิดถึงคุณแล้วเนี่ย</p>
       <ChasePair agreeLabel="ดีกัน" denyLabel="ไม่ดี" containerRef={cardRef} onAgree={onAgreed} />
@@ -226,7 +235,7 @@ function MakeUpNoRetry({ onAgreed }) {
 function MakeUpYes({ onNext }) {
   return (
     <div className="card">
-      <DogMeme caption="งอแง้งอแง" />
+      <DogMeme caption="งอแง้งอแง" src={dogWhine} />
       <h1>งืมม ดีกันแล้ว</h1>
       <p className="msg">สุดท้ายละ ๆ เค้าอยากจะบอกเธอว่า...</p>
       <button className="agree-btn wide" onClick={onNext}>ไปกันต่อ</button>
@@ -237,7 +246,7 @@ function MakeUpYes({ onNext }) {
 function Final() {
   return (
     <div className="card win">
-      <DogMeme caption="นอนขดข้าง ๆ" />
+      <DogMeme caption="นอนขดข้าง ๆ" src={dogSleep} />
       <div className="win-icon-row">
         <IconHeart />
         <IconSparkle />
