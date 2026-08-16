@@ -1,3 +1,4 @@
+import dogImg from './assets/dog.jpg'
 import { useState, useRef, useEffect } from 'react'
 import './App.css'
 
@@ -30,11 +31,17 @@ const IconEnvelope = () => (
 )
 
 /* ---------- Small reusable meme slot (every page) ---------- */
-function DogMeme({ caption }) {
+function DogMeme({ caption, src }) {
   return (
     <div className="meme-thumb">
-      <IconImage />
-      <span>ใส่มีมหมาตรงนี้{caption ? ` \u00b7 ${caption}` : ''}</span>
+      {src ? (
+        <img src={src} alt={caption || 'มีมหมา'} className="meme-img" />
+      ) : (
+        <>
+          <IconImage />
+          <span>ใส่มีมหมาตรงนี้{caption ? ` \u00b7 ${caption}` : ''}</span>
+        </>
+      )}
     </div>
   )
 }
@@ -95,30 +102,28 @@ function Landing({ onYes }) {
     <div className="card" ref={cardRef}>
       <div className="photo-frame">
         <div className="photo-placeholder">
-          <IconImage />
-          <span>ใส่รูปหมาตรงนี้</span>
+          <img src={dogImg} alt="หมา" className="meme-img" />
         </div>
         <span className="tape tape-left" />
         <span className="tape tape-right" />
       </div>
 
       <h1>ต๊ะเอ๋ นอยเค้าหรอ</h1>
-      <p className="msg">เลือกตอบตามตรงเลยนะ</p>
+      <p className="msg">ตอบมาตามตรงเลยนะ</p>
 
       <ChasePair agreeLabel="ใช่" denyLabel="ไม่" containerRef={cardRef} onAgree={onYes} />
-
-      <p className="hint">ลองขยับนิ้ว/เมาส์ไปทางปุ่มขวาดูสิ</p>
     </div>
   )
 }
 
 function AskKnow({ onNext }) {
+  const cardRef = useRef(null)
   return (
-    <div className="card">
+    <div className="card" ref={cardRef}>
       <DogMeme caption="ทำหน้าลึกลับ" />
       <h1>บลูมีไรจะให้แหละ</h1>
       <p className="msg">ไหนๆ คุณอยากรู้มั้ยอะไร</p>
-      <PlainChoice leftLabel="อยากรู้" rightLabel="ไม่อยากรู้" onLeft={onNext} onRight={onNext} />
+      <ChasePair agreeLabel="อยากรู้" denyLabel="ไม่อยากรู้" containerRef={cardRef} onAgree={onNext} />
     </div>
   )
 }

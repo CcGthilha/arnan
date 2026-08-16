@@ -87,6 +87,14 @@ body {
   font-size: clamp(11px, 2.6vw, 13px);
 }
 
+.meme-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+}
+
 .tape {
   position: absolute;
   width: 46px;
